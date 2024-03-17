@@ -11,7 +11,7 @@ function App() {
         <Nav />
         <Route path="/" component={Homepage} />
       </header>
-      <Route path="/details" component={PokemonDescription} />
+      <Route path="/pokemon/:id" component={PokemonDescription} />
     </div>
   );
 }
