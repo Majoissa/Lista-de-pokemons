@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route } from "wouter";
+import Nav from "./Components/Nav/Nav";
+import Homepage from "./Components/HomePage/HomePage";
+import PokemonDescription from "./Components/PokemonDescription/PokemonDescription";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Nav />
+        <Route path="/" component={Homepage} />
       </header>
+      <Route path="/details" component={PokemonDescription} />
     </div>
   );
 }
