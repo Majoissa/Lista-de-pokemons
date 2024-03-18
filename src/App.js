@@ -1,20 +1,21 @@
 import "./App.css";
 import { Route } from "wouter";
-import { ChakraProvider } from "@chakra-ui/provider";
+import { ChakraProvider } from "@chakra-ui/react";
 import Nav from "./Components/Nav/Nav";
 import Homepage from "./Components/HomePage/HomePage";
 import PokemonDescription from "./Components/PokemonDescription/PokemonDescription";
+import { Box } from "@chakra-ui/react";
 
 function App() {
   return (
     <ChakraProvider>
-      <div className="App">
-        <header className="App-header">
+      <Box className="App">
+        <Box as="header" className="App-header">
           <Nav />
           <Route path="/" component={Homepage} />
-        </header>
+        </Box>
         <Route path="/pokemon/:id" component={PokemonDescription} />
-      </div>
+      </Box>
     </ChakraProvider>
   );
 }
