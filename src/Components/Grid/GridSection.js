@@ -8,6 +8,7 @@ const GridSection = () => {
   return (
     <>
       <VStack
+        id="gridSection"
         bg={colorMode === "light" ? "#dd6b20" : "#3373af"}
         color={colorMode === "light" ? "gray.800" : "white"}
         w={"100%"}
