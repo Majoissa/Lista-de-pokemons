@@ -1,8 +1,8 @@
 import CardPokemon from "./CardPokemon";
 import React, { useState, useEffect } from "react";
-import { Box, Grid } from "@chakra-ui/react";
+import { Box, Grid, VStack } from "@chakra-ui/react";
 
-const PokemonGrid = () => {
+const PokemonGrid = ({ isListView }) => {
   const [pokemonData, setPokemonData] = useState([]);
 
   useEffect(() => {
@@ -43,24 +43,38 @@ const PokemonGrid = () => {
   }, []);
 
   return (
-    <Grid
-      templateColumns={{
-        base: "repeat(2,1fr)",
-        md: "repeat(3,1fr)",
-        xl: "repeat(4,1fr)",
-      }}
-      gap={6}
-      px={20}
-      py={8}
-      mt={20}
-      zIndex={5}
-    >
-      {pokemonData.map((pokemon) => (
-        <Box key={pokemon.id} w={"100%"}>
-          <CardPokemon pokemon={pokemon} />
-        </Box>
-      ))}
-    </Grid>
+    <Box>
+      {isListView ? (
+        <VStack spacing={4}>
+          {pokemonData.map((pokemon) => (
+            <CardPokemon
+              key={pokemon.id}
+              pokemon={pokemon}
+              isListView={isListView}
+            />
+          ))}
+        </VStack>
+      ) : (
+        <Grid
+          templateColumns={{
+            base: "repeat(2,1fr)",
+            md: "repeat(3,1fr)",
+            xl: "repeat(4,1fr)",
+          }}
+          gap={6}
+          px={20}
+          py={8}
+          mt={20}
+          zIndex={5}
+        >
+          {pokemonData.map((pokemon) => (
+            <Box key={pokemon.id} w={"100%"}>
+              <CardPokemon pokemon={pokemon} isListView={isListView} />
+            </Box>
+          ))}
+        </Grid>
+      )}
+    </Box>
   );
 };
 

@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "wouter";
-import { Text, useColorMode, VStack, Heading } from "@chakra-ui/react";
+import { useColorMode, VStack, HStack, Heading, Box } from "@chakra-ui/react";
+import { Switch, Text } from "@chakra-ui/react";
 import PokemonGrid from "./PokemomGrid";
 
 const GridSection = () => {
   const { colorMode } = useColorMode();
+  const [isListView, setIsListView] = React.useState(false);
   return (
     <>
       <VStack
@@ -32,7 +33,18 @@ const GridSection = () => {
         >
           Know more about our Pokemons!
         </Heading>
-        <PokemonGrid />
+        <HStack w={"full"} justify={"space-between"}>
+          <Box></Box>
+          <HStack mt={-170} mr={50}>
+            <Switch
+              isChecked={isListView}
+              onChange={() => setIsListView(!isListView)}
+              size={"lg"}
+              colorScheme="blue"
+            />
+          </HStack>
+        </HStack>
+        <PokemonGrid isListView={isListView} />
       </VStack>
     </>
   );

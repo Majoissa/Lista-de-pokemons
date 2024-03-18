@@ -4,12 +4,6 @@ import GridSection from "../Grid/GridSection";
 import Nav from "../Nav/Nav";
 
 const Homepage = () => {
-  const scrollToGridSection = () => {
-    const gridSection = document.getElementById("gridSection");
-    if (gridSection) {
-      gridSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
   return (
     <>
       <Nav isHome={true} />
