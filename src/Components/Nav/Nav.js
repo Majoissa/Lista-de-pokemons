@@ -14,6 +14,7 @@ const Nav = () => {
       width={"100%"}
       height={"70px"}
       top={0}
+      zIndex={11}
     >
       <Stack
         direction={"row"}
