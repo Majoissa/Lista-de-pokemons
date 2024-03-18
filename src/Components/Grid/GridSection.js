@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "wouter";
 import { Text, useColorMode, VStack, Heading } from "@chakra-ui/react";
+import PokemonGrid from "./PokemomGrid";
 
 const GridSection = () => {
   const { colorMode } = useColorMode();
@@ -19,13 +20,18 @@ const GridSection = () => {
           as="h1"
           w={"50%"}
           fontFamily="'Mochiy Pop P One', sans-serif"
-          color="#0f3f44"
-          textShadow="0 0 10px #FFD100"
+          color={colorMode === "light" ? "#FFD100" : "#0f3f44"}
+          textShadow={
+            colorMode === "light" ? "0 0 10px #0f3f44" : "0 0 10px #FFD100"
+          }
           fontSize={{ base: "2xl", md: "5xl", lg: "5xl" }}
           textAlign="center"
+          zIndex={7}
+          mt={{ base: "340", lg: "320" }}
         >
           Know more about our Pokemons!
         </Heading>
+        <PokemonGrid />
       </VStack>
     </>
   );
