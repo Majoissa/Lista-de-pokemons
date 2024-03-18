@@ -1,9 +1,22 @@
 import React from "react";
 import { Button, Stack, Box, useColorMode } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { useLocation } from "wouter";
 
-const Nav = () => {
+const Nav = ({ isHome }) => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const [location, setLocation] = useLocation();
+
+  const scrollToGridSection = () => {
+    if (isHome) {
+      const gridSection = document.getElementById("gridSection");
+      if (gridSection) {
+        gridSection.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      setLocation("/");
+    }
+  };
   return (
     <Box
       as="nav"
@@ -23,7 +36,9 @@ const Nav = () => {
         justify={"flex-end"}
         paddingRight={"1rem"}
       >
-        <Button colorScheme="orange">See all our Pokemons</Button>
+        <Button colorScheme="orange" onClick={scrollToGridSection}>
+          See all our Pokemons
+        </Button>
         <Button onClick={toggleColorMode} borderRadius={100}>
           {colorMode === "light" ? (
             <MoonIcon boxSize={5} />
