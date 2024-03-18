@@ -41,12 +41,12 @@ const Carrousel = ({ images }) => {
       w="full"
       h="auto"
       overflow="hidden"
-      paddingBottom={50}
+      paddingBottom={{ base: 1, sm: 5, md: 10, lg: 50 }}
       paddingTop={25}
     >
       <IconButton
         onClick={handleLeftClick}
-        icon={<ChevronLeftIcon boxSize={9} />}
+        icon={<ChevronLeftIcon boxSize={12} />}
         position="absolute"
         left={0}
         zIndex={2}
@@ -78,7 +78,7 @@ const Carrousel = ({ images }) => {
             scrollSnapAlign="center"
             w="80vw"
             h="80vh"
-            mt={{ sm: 5, base: 40, md: 70, lg: 100 }}
+            mt={{ base: 2, sm: 10, md: 70, lg: 100 }}
           >
             <Heading
               marginTop={{
@@ -91,26 +91,30 @@ const Carrousel = ({ images }) => {
               position={"absolute"}
               w={"70%"}
               fontFamily="'Mochiy Pop P One', sans-serif"
-              color="#0f3f44"
-              textShadow="0 0 10px #FFD100"
-              fontSize={{ sm: "1xl", base: "2xl", md: "5xl", lg: "5xl" }}
+              color={colorMode === "light" ? "#FFD100" : "#0f3f44"}
+              textShadow={
+                colorMode === "light" ? "0 0 10px #0f3f44" : "0 0 10px #FFD100"
+              }
+              fontSize={{ base: "1xl", sm: "2xl", md: "5xl", lg: "5xl" }}
               textAlign="center"
             >
-              Welcome to Pokemon World!
+              Welcome to Pokemon's World!
             </Heading>
             <Image
               src={image}
               alt={`Imagen del carrousel ${index}`}
               objectFit="cover"
               w="80vw"
-              h={{ sm: "50vh", base: "60vh", md: "70vh", lg: "80vh" }}
+              h={{ base: "50vh", sm: "60vh", md: "70vh", lg: "80vh" }}
+              boxShadow="dark-lg"
+              rounded="md"
             />
           </Box>
         ))}
       </Flex>
       <IconButton
         onClick={handleRightClick}
-        icon={<ChevronRightIcon boxSize={9} />}
+        icon={<ChevronRightIcon boxSize={12} />}
         position="absolute"
         right={0}
         zIndex={2}
