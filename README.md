@@ -1,71 +1,18 @@
-# Getting Started with Create React App
+# Pokemons list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+La librería utilizada para este proyecto de react es "Chakra UI"
 
-## Available Scripts
+## Implementaciones
 
-In the project directory, you can run:
+- Navegación, presente en el archivo App.js realizada con 'wouter'
+- Incorporación de la librería Chakra Ui con ChakraProvider tambien en el App.js
+- Componente Nav en el archivo Nav.js que contiene un botón para ir al grid de los pokemones, y un botón para cambiar vistas 'light/dark'
+- Un carousel con una bienvenida a la página y un carousel de imagenes harcodeadas.
+- Sección Grid: tiene un título y un switch que permite intercambiar entre dos vistas: vista lista y lista grid. Los datos se obtienen de la Api pokemonapi
+- Todo lo descripto anteriormente forma parte del Home
+- Al presionar el botón 'see more... ' de las tarjetas, se navega a la página PokemonDescription, donde se pueden ver más imágenes del pokemon seleccionado, y la ruta es /pokemon/id de dicho pokemon. Esta navegación está implementada con los params de 'useRoute' de wouter.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Lista-de-pokemons
+## Pasos para ejecutar el proyecto:
+1) Clonar el repositorio en el ordenador
+2) En la terminal, navegar hacia la ruta del proyecto, y dentro del repositorio 'Lista-de-pokemones' ejecutar el comando 'npm install' para instalar las dependencias implementadas
+3) Una vez realizado el paso anterior, ejecutar 'npm start'
