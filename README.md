@@ -8,7 +8,7 @@ La librería utilizada para este proyecto de react es "Chakra UI"
 - Incorporación de la librería Chakra Ui con ChakraProvider tambien en el App.js
 - Componente Nav en el archivo Nav.js que contiene un botón para ir al grid de los pokemones, y un botón para cambiar vistas 'light/dark'
 - Un carousel con una bienvenida a la página y un carousel de imagenes harcodeadas.
-- Sección Grid: tiene un título y un switch que permite intercambiar entre dos vistas: vista lista y lista grid. Los datos se obtienen de la Api pokemonapi
+- Sección Grid: tiene un título y un switch que permite intercambiar entre dos vistas: vista lista y lista grid. Además cuenta con paginación, y por página caben 20 pokemons. Los datos se obtienen de la Api pokemonapi
 - Todo lo descripto anteriormente forma parte del Home
 - Al presionar el botón 'see more... ' de las tarjetas, se navega a la página PokemonDescription, donde se pueden ver más imágenes del pokemon seleccionado, y la ruta es /pokemon/id de dicho pokemon. Esta navegación está implementada con los params de 'useRoute' de wouter.
 
