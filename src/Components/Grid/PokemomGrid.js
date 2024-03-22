@@ -1,20 +1,29 @@
 import CardPokemon from "./CardPokemon";
 import React, { useState, useEffect } from "react";
 import { Box, Grid, VStack } from "@chakra-ui/react";
+import Pagination from "./Pagination";
 
 const PokemonGrid = ({ isListView }) => {
   const [pokemonData, setPokemonData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPokems, setTotalPokemons] = useState(0);
 
   useEffect(() => {
-    const fetchPokemons = async () => {
+    const fetchPokemons = async (page) => {
+      //se calcula el offset basado en la pagina actual y el limite por pagina
+      const limit = 20;
+      const offset = (page - 1) * limit;
+
       try {
         const listResponse = await fetch(
-          "https://pokeapi.co/api/v2/pokemon?limit=40"
+          `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
         );
+
         if (!listResponse.ok) {
           throw new Error(`HTTP error! status: ${listResponse.status}`);
         }
         const listData = await listResponse.json();
+        setTotalPokemons(listData.count);
 
         const pokemonsData = await Promise.all(
           listData.results.map(async (pokemon) => {
@@ -39,13 +48,18 @@ const PokemonGrid = ({ isListView }) => {
       }
     };
 
-    fetchPokemons();
-  }, []);
+    fetchPokemons(currentPage);
+  }, [currentPage]);
 
   return (
     <Box>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={Math.ceil(totalPokems / 20)}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
       {isListView ? (
-        <VStack spacing={4}>
+        <VStack spacing={4} mt={15}>
           {pokemonData.map((pokemon) => (
             <CardPokemon
               key={pokemon.id}
@@ -64,7 +78,7 @@ const PokemonGrid = ({ isListView }) => {
           gap={6}
           px={20}
           py={8}
-          mt={20}
+          mt={15}
           zIndex={5}
         >
           {pokemonData.map((pokemon) => (
