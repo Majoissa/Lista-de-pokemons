@@ -1,11 +1,12 @@
 import React from "react";
 import { useColorMode, VStack, HStack, Heading, Box } from "@chakra-ui/react";
-import { Switch, Text } from "@chakra-ui/react";
+import { Switch } from "@chakra-ui/react";
 import PokemonGrid from "./PokemomGrid";
+import { useAppContext } from "../../AppContext";
 
 const GridSection = () => {
   const { colorMode } = useColorMode();
-  const [isListView, setIsListView] = React.useState(false);
+  const { isListView, setIsListView } = useAppContext();
   return (
     <>
       <VStack
