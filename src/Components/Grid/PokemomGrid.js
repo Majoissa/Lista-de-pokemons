@@ -2,10 +2,11 @@ import CardPokemon from "./CardPokemon";
 import React, { useState, useEffect } from "react";
 import { Box, Grid, VStack } from "@chakra-ui/react";
 import Pagination from "./Pagination";
+import { useAppContext } from "../../AppContext";
 
-const PokemonGrid = ({ isListView }) => {
+const PokemonGrid = () => {
+  const { isListView, currentPage, setCurrentPage } = useAppContext();
   const [pokemonData, setPokemonData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPokems, setTotalPokemons] = useState(0);
 
   useEffect(() => {
